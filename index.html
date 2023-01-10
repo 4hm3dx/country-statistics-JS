@@ -1,39 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Essais JS</title>
+    <title>Countries Stats</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
     />
-    <script src="js/countrie.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/countrie.js" defer></script>
     <script src="js/app.js" defer></script>
   </head>
   <body>
     <main class="container">
-      <h1>Countries Stats</h1>
+      <header>
+        <h1 class="neon">Countries Stats</h1>
+        <div class="tagline">Révisez votre Géo !</div>
+      </header>
+      <section>
+        <p>Bienvenue 👋 :)</p>
+        <p>
+          Cette série d'exercices vous fera pratiquer des concepts connus tels
+          que variables, conditions, boucles, mais aussi de nouveaux tels que
+          les fonctions. La difficulté est progressive et chaque exercice
+          peut-être fait en 2 étapes.
+        </p>
+        <p></p>
+        <p>Essayez de vous challenger. Ne rushez pas. #ENJOY</p>
+      </section>
       <article>
-        <header>
-          Select a country by it's name. If country found display country in
-          console, else, display "No match for x"
+        <header class="neon">Afficher les informations sur un pays</header>
+        <p>
+          Ecrire un script qui permet d'afficher les informations d'un pays à
+          partir de son nom. Si le pays existe dans le tableau, on affiche les
+          infos du pays, sinon on affiche "Aucun pays trouvé pour {nom_pays}".
+        </p>
+
+        <p>
+          Dans un premier temps, le nom du pays sera stocké "en dur" dans une
+          variable. {nom_pays} représente ici la valeur de cette variable.
+        </p>
+
+        <p>
+          Dans un deuxième temps, on peut imaginer que {nom_pays} sera le
+          paramètre d'une fonction qui retournera l'objet qui représente le
+          pays.
+        </p>
+
+        <p>Le résultat sera affiché dans la console du navigateur.</p>
+        <blockquote>
+          <pre><code>
+  let pays = "Andorra"
+
+  ... code ...
+  
+  // exemple d'affichage console
+  {countryCode: 'AD', countryName: 'Andorra', currencyCode: 'EUR', population: '84000', capital: 'Andorra la Vella', …}
+
+  //////////////////////////////////////////
+          
+  let pays = "test"
+
+  ... code ...
+  
+  // exemple d'affichage console
+Aucun pays trouvé pour test
+          </code></pre>
+        </blockquote>
+        <footer>#boucle #condition</footer>
+      </article>
+      <article>
+        <header class="neon">
+          Afficher les données d'un pays sous forme de message
         </header>
+        <p>
+          Pour un pays donné, afficher le message "La capitale de {nom_pays} est
+          {nom_capitale}, sa devise est {nom_devise} et sa population est
+          {population}.
+        </p>
+        <p>
+          Dans un premier temps, le nom du pays sera stocké "en dur" dans une
+          variable. {nom_pays} représente ici la valeur de cette variable.
+        </p>
+        <p>
+          Dans un deuxième temps, on peut imaginer que {nom_pays} sera le
+          paramètre d'une fonction qui affichera le message.
+        </p>
+        <p>Le résultat sera affiché dans la console du navigateur.</p>
+
+        <blockquote>
+          <pre><code>
+let pays = "France"
+
+... code ...
+
+// exemple d'affichage console
+La capitale de France est Paris, sa devise est EUR et sa population est 64768389"
+          </code></pre>
+        </blockquote>
+        <footer>#boucle #condition #string</footer>
       </article>
       <article>
-        <header>
-          For a given country, display "Capital of x is x, currency is x and
-          population is x"
+        <header class="neon">
+          Afficher la liste de tous les pays appartenant à un continent donné
         </header>
+        <p>
+          Pour un continent donné, afficher sous forme de tableau d'objets la
+          liste des pays qui appartiennent à ce continent.
+        </p>
+        <p>
+          Dans un premier temps, le nom du continent sera stocké "en dur" dans
+          une variable.
+        </p>
+        <p>
+          Dans un deuxième temps, on peut imaginer que le nom du continent sera
+          le paramètre d'une fonction qui retournera ce tableau.
+        </p>
+
+        <p>Le résultat sera affiché dans la console du navigateur.</p>
+
+        <blockquote>
+          <pre><code>
+let pays = "Europe"
+
+... code ...
+
+// exemple d'affichage console
+[{...},{...},{...}, ...]
+          </code></pre>
+        </blockquote>
+        <footer>#filter</footer>
       </article>
       <article>
-        <header>Find all countries for a given continent</header>
+        <header class="neon">
+          Calculer la population totale pour un continent
+        </header>
+        <p>
+          Pour un continent donné, afficher la population totale des pays qui
+          lui appartiennent.
+        </p>
+        <p>
+          Dans un premier temps, le nom du continent sera stocké "en dur" dans
+          une variable.
+        </p>
+        <p>
+          Dans un deuxième temps, le nom du continent sera le paramètre d'une
+          fonction qui retournera la population totale de ce continent.
+        </p>
+        <p>
+          Le résultat sera affiché dans la console du navigateur sous la forme
+          du message "Population totale pour {nom_continent} : {population}"
+        </p>
+        <blockquote>
+          <pre><code>
+let pays = "Europe"
+
+... code ...
+
+// exemple d'affichage console
+Population totale pour Europe : 739141025
+          </code></pre>
+        </blockquote>
+
+        <footer>#condition #boucle #filter #reduce</footer>
       </article>
       <article>
-        <header>Get the total population for a continent</header>
+        <header class="neon">
+          Afficher le nom du continent le plus peuplé ainsi que sa population
+          totale
+        </header>
+        <p>
+          A partir du tableau fourni, déterminer quel est le continent le plus
+          peuplé et afficher un objet contenant une propriété {name} qui a pour
+          valeur le nom du continent, et une propriété {population} qui a pour
+          valeur la population totale de ce continent.
+        </p>
+        <p>
+          Dans un premier temps votre script sera codé directement dans le
+          fichier.
+        </p>
+        <p>
+          Dans un 2ème temps vous créerez une fonction qui exécutera votre code
+          et retournera un objet.
+        </p>
+        <p>Le résultat sera affiché en console.</p>
+        <blockquote>
+          <pre><code>
+
+// exemple d'affichage console
+{name: {nom_continent}, population: {population_continent}}
+          </code></pre>
+        </blockquote>
+
+        <footer>#boucle #condition #map</footer>
       </article>
-      <article><header>Get the most populated continent</header></article>
     </main>
+    <footer class="container">&copy; Cooldev 2023</footer>
   </body>
 </html>
