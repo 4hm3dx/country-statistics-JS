@@ -18,4 +18,19 @@ function afficherInfosPays(nomPays) {
     }
 }
 
-afficherInfosPays(nomPays);
+// afficherInfosPays(nomPays);
+
+function afficherInfosPaysPhrase(nomPays) {
+
+    const paysTrouve = countries.find(pays => pays.countryName.toLowerCase() === nomPays.toLowerCase());
+
+
+    if (paysTrouve) {
+        console.log(`La capitale de ${paysTrouve.countryName} est ${paysTrouve.capital}, sa devise est ${paysTrouve.currencyCode} et sa population est ${paysTrouve.population}`);
+    } else {
+        // Si le pays n'est pas trouvé, on affiche un message d'erreur
+        console.log(`Aucun pays trouvé pour ${nomPays}`);
+    }
+}
+
+// afficherInfosPaysPhrase(nomPays);
