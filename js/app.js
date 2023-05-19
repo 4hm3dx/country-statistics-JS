@@ -41,7 +41,7 @@ function afficherPaysContinent(nomContinent) {
 
     const continentTrouve = countries.filter(continent => continent.continentName.toLowerCase() === nomContinent.toLowerCase());
 
-    if (continentTrouve) {
+    if (continentTrouve.length > 0) {
         continentTrouve.forEach(pays => {
             console.log(pays.countryName);
         });
@@ -50,4 +50,21 @@ function afficherPaysContinent(nomContinent) {
     }
 }
 
-afficherPaysContinent(nomContinent);
+// afficherPaysContinent(nomContinent);
+
+function populationTotaleContinent(nomContinent) {
+
+    const continentTrouve = countries.filter(continent => continent.continentName.toLowerCase() === nomContinent.toLowerCase());
+    const populationTotale = continentTrouve.reduce((total, pays) => {
+        return total + parseInt(pays.population);
+    }, 0);
+
+    if (continentTrouve.length > 0) {
+        console.log(`La population totale de l'${nomContinent} est de ${populationTotale}`);
+    } else {
+        console.log(`Aucun continent trouvé pour ${nomContinent}`);
+    }
+
+}
+
+populationTotaleContinent(nomContinent);
