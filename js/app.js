@@ -68,3 +68,34 @@ function populationTotaleContinent(nomContinent) {
 }
 
 populationTotaleContinent(nomContinent);
+
+// continent le plus peuplé
+
+function continentPlusPeuple() {
+    const continents = {};
+
+    countries.forEach(country => {
+        if (continents.hasOwnProperty(country.continentName)) {
+            continents[country.continentName] += parseInt(country.population);
+        } else {
+            continents[country.continentName] = parseInt(country.population);
+        }
+    });
+
+    let continentPlusPeuple = {
+        name: "",
+        population: 0
+    };
+
+    for (const continent in continents) {
+        if (continents[continent] > continentPlusPeuple.population) {
+            continentPlusPeuple.name = continent;
+            continentPlusPeuple.population = continents[continent];
+        }
+    }
+
+    return continentPlusPeuple;
+}
+
+const resultat = continentPlusPeuple();
+console.log(resultat);
